@@ -41,9 +41,9 @@
             @Html.DisplayFor(modelItem => item.unit_price)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Edit", "Edit", new { _id = item._id , description = item.description , unit_price =item.unit_price}) |
             @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Delete", "Delete", new { _id = item._id, description = item.description, unit_price = item.unit_price , status = item.status})
         </td>
     </tr>
 }

@@ -61,5 +61,32 @@ namespace TheBillingProject.Controllers
             Res.EnsureSuccessStatusCode();
             return RedirectToAction("Index");           
         }
+
+        async public Task<ActionResult> UpdateArticle(Article art)
+        {
+            string json = JsonConvert.SerializeObject(art);
+            HttpResponseMessage Res = await ArticleClient().PutAsync("articles/update", new StringContent(json, UnicodeEncoding.UTF8, "application/json"));
+
+            Res.EnsureSuccessStatusCode();
+            return RedirectToAction("Index");
+        }
+        async public Task<ActionResult> DeleteArticle(Article art)
+        {
+            string json = JsonConvert.SerializeObject(art);
+            HttpResponseMessage Res = await ArticleClient().PostAsync("articles/toggle_status", new StringContent(json, UnicodeEncoding.UTF8, "application/json"));
+
+            Res.EnsureSuccessStatusCode();
+            return RedirectToAction("Index");
+        }
+        public ActionResult Edit(Article art)
+        {
+
+            return View(art);
+        }
+        public ActionResult Delete(Article art)
+        {
+
+            return View(art);
+        }
     }
 }
