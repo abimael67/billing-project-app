@@ -705,7 +705,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\app-style-switcher.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -838,29 +837,16 @@
     <Content Include="dist\css\icons\weather-icons\sass\weather-icons.min.scss" />
     <Content Include="dist\css\icons\weather-icons\sass\weather-icons.scss" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
-    <Content Include="Scripts\custom.js" />
-    <Content Include="Scripts\custom.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery-ui.min.js" />
-    <Content Include="Scripts\jquery.ui.touch-punch-improved.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\pages\calendar\cal-init.js" />
-    <Content Include="Scripts\pages\chart\chart-init.js" />
-    <Content Include="Scripts\pages\chart\chart-page-init.js" />
-    <Content Include="Scripts\pages\dashboards\dashboard1.js" />
-    <Content Include="Scripts\pages\maps\map-google.init.js" />
-    <Content Include="Scripts\pages\mask\mask.init.js" />
-    <Content Include="Scripts\pages\sparkline\jquery.charts-sparkline.js" />
-    <Content Include="Scripts\sidebarmenu.js" />
-    <Content Include="Scripts\waves.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
