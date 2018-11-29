@@ -30,6 +30,5 @@ namespace TheBillingProject.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<TheBillingProject.Models.Clients> Clients { get; set; }
     }
 }

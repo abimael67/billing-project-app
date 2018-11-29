@@ -69,7 +69,7 @@ namespace TheBillingProject.Controllers
 
             Res.EnsureSuccessStatusCode();
             return RedirectToAction("Index");
-        }
+        } 
         async public Task<ActionResult> DeleteArticle(Article art)
         {
             string json = JsonConvert.SerializeObject(art);
