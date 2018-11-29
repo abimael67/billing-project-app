@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -30,10 +30,17 @@ namespace TheBillingProject.Controllers
 
         }
 
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(string name, string criteria)
         {
             List<Client> clientInfo = new List<Client>();
-            HttpResponseMessage Res = await Clients().GetAsync("customers/get");
+            HttpResponseMessage Res = null;
+            if (!string.IsNullOrEmpty(name) && criteria == "name")
+                Res = await Clients().GetAsync("customers/get?name=" + name);
+            else if (!string.IsNullOrEmpty(name) && criteria == "id")
+                Res = await Clients().GetAsync("customers/get?id=" + name);           
+            else
+                Res = await Clients().GetAsync("customers/get");
+
 
             if (Res.IsSuccessStatusCode)
             {
