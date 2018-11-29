@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -30,12 +30,16 @@ namespace TheBillingProject.Controllers
                 return client;
             
         }
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(string desc)
         {
-            List<Article> articleInfo = new List<Article>();                          
-                HttpResponseMessage Res = await ArticleClient().GetAsync("articles/get");
-            
-                if (Res.IsSuccessStatusCode)
+
+            List<Article> articleInfo = new List<Article>();
+            HttpResponseMessage Res = null;
+            if (string.IsNullOrEmpty(desc))
+                Res = await ArticleClient().GetAsync("articles/get");
+            else
+                Res = await ArticleClient().GetAsync("articles/get?desc="+desc);
+            if (Res.IsSuccessStatusCode)
                 {                   
                     var articleResponse = Res.Content.ReadAsStringAsync().Result;
                     JObject jo = JObject.Parse(articleResponse);
