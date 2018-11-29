@@ -1,4 +1,4 @@
-﻿@model TheBillingProject.Models.Client
+@model TheBillingProject.Models.Client
 
 @{
     ViewBag.Title = "View";
@@ -22,7 +22,7 @@
 </div>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Insert", "Client")) 
 {
     @Html.AntiForgeryToken()
     
@@ -41,28 +41,22 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.rnc, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.identification, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.rnc, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.rnc, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.identification, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.identification, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.cuenta_contable, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.account, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.cuenta_contable, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.cuenta_contable, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.account, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.account, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.estado, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.estado, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.estado, "", new { @class = "text-danger" })
-            </div>
-        </div>
+      
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
