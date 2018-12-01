@@ -48,8 +48,8 @@ namespace TheBillingProject.Controllers
 
         public ActionResult Create(Bill bi)
         {
-
-            return View();
+            bi.details = new List<BillDetails>();
+            return View(bi);
         }
 
         async public Task<ActionResult> Insert(Bill bi)
@@ -86,6 +86,26 @@ namespace TheBillingProject.Controllers
         {
 
             return View(bi);
+        }
+        public async Task<ActionResult> Details(Bill bil)
+        {
+
+            Bill billInfo = new Bill();
+            HttpResponseMessage Res = null;
+            if (!string.IsNullOrEmpty(bil._id))
+                Res = await Bills().GetAsync("bills/get?_id=" + bil._id);
+            if (Res.IsSuccessStatusCode)
+            {
+                var accountingResponse = Res.Content.ReadAsStringAsync().Result;
+                JObject jo = JObject.Parse(accountingResponse);
+                JToken data = jo["data"][0];
+              
+                var jsonResponse = JsonConvert.DeserializeObject(accountingResponse);
+                billInfo = JsonConvert.DeserializeObject<Bill>(data.ToString());
+              //  var Billdetails = JsonConvert.DeserializeObject<Bill>(data.ToString()).billDetails;
+            }
+            return View(billInfo);
+
         }
 
     }

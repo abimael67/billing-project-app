@@ -12,20 +12,14 @@ namespace TheBillingProject.Models
         [Display(Name = "Id")]
         public string _id { get; set; }
         [Display(Name = "Seller Id")]
-        public string seller_id { get; set; }
+        public string seller { get; set; }
         [Display(Name = "Client Id")]
-        public string client_id { get; set; }
+        public string customer { get; set; }
         [Display(Name = "Date")]
         public DateTime date { get; set; }
         [Display(Name = "Commentario")]
         public string comment { get; set; }
-        [Display(Name = "Article Id")]
-        public string article_id{ get; set; }
-        [Display(Name = "Cantidad")]
-        public int quantity { get; set; }
-        [Display(Name = "Precio Unitario")]
-        public int unit_price { get; set; }
-        public List<BillDetails> billDetails;
+        public List<BillDetails> details;
     }
     public class BillDetails
     {

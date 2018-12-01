@@ -58,7 +58,7 @@ namespace TheBillingProject.Controllers
             registrarBody.Monto = monto;
             registrar.Body = registrarBody;
 
-            service.registrarAsiento(registrar);
+            var response = service.registrarAsiento(registrar);
 
             return RedirectToAction("Index");
         }
