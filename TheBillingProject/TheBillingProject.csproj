@@ -199,6 +199,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AccountingMoveController.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\BillController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
@@ -208,6 +209,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AccountingMove.cs" />
+    <Compile Include="Models\AccountingMoveDetail.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\Bill.cs" />
@@ -903,6 +906,8 @@
     <Content Include="Views\Bill\Create.cshtml" />
     <Content Include="Views\Bill\Edit.cshtml" />
     <Content Include="Views\Bill\Delete.cshtml" />
+    <Content Include="Views\AccountingMove\Index.cshtml" />
+    <Content Include="Views\AccountingMove\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
