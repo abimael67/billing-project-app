@@ -30,9 +30,9 @@ namespace TheBillingProject.Controllers
                 return client;
             
         }
-        public async Task<ActionResult> Index(string desc)
-        {
 
+        //public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(string desc) { 
             List<Article> articleInfo = new List<Article>();
             HttpResponseMessage Res = null;
             if (string.IsNullOrEmpty(desc))
@@ -73,7 +73,8 @@ namespace TheBillingProject.Controllers
 
             Res.EnsureSuccessStatusCode();
             return RedirectToAction("Index");
-        } 
+        }
+
         async public Task<ActionResult> DeleteArticle(Article art)
         {
             string json = JsonConvert.SerializeObject(art);
@@ -82,14 +83,15 @@ namespace TheBillingProject.Controllers
             Res.EnsureSuccessStatusCode();
             return RedirectToAction("Index");
         }
+
         public ActionResult Edit(Article art)
         {
 
             return View(art);
         }
+
         public ActionResult Delete(Article art)
         {
-
             return View(art);
         }
     }
