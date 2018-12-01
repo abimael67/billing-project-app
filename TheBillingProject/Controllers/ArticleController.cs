@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -30,13 +30,21 @@ namespace TheBillingProject.Controllers
                 return client;
             
         }
+<<<<<<< HEAD
 
         public async Task<ActionResult> Index()
+=======
+        public async Task<ActionResult> Index(string desc)
+>>>>>>> ab2cd367f72e7f29ba4c2ed5b0c73e2ca4dd100d
         {
-            List<Article> articleInfo = new List<Article>();                          
-                HttpResponseMessage Res = await ArticleClient().GetAsync("articles/get");
-            
-                if (Res.IsSuccessStatusCode)
+
+            List<Article> articleInfo = new List<Article>();
+            HttpResponseMessage Res = null;
+            if (string.IsNullOrEmpty(desc))
+                Res = await ArticleClient().GetAsync("articles/get");
+            else
+                Res = await ArticleClient().GetAsync("articles/get?desc="+desc);
+            if (Res.IsSuccessStatusCode)
                 {                   
                     var articleResponse = Res.Content.ReadAsStringAsync().Result;
                     JObject jo = JObject.Parse(articleResponse);
@@ -70,7 +78,7 @@ namespace TheBillingProject.Controllers
 
             Res.EnsureSuccessStatusCode();
             return RedirectToAction("Index");
-        }
+        } 
         async public Task<ActionResult> DeleteArticle(Article art)
         {
             string json = JsonConvert.SerializeObject(art);
