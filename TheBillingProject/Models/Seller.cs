@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -14,7 +14,7 @@ namespace TheBillingProject.Models
         [Display(Name = "Nombre")]
         public string name { get; set; }
         [Display(Name = "Porciento de Comision")]
-        public string porciento { get; set; }
+        public string comission_percent { get; set; }
         [Display(Name = "Status")]
         public string status { get; set; }
     }
