@@ -30,6 +30,7 @@ namespace TheBillingProject.Controllers
                 return client;
             
         }
+
         public async Task<ActionResult> Index()
         {
             List<Article> articleInfo = new List<Article>();                          
