@@ -38,18 +38,18 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.seller_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.seller, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.seller_id, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.seller_id, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.seller, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.seller, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.client_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.customer, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.client_id, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.client_id, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.customer, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.customer, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -69,29 +69,7 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.article_id, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.article_id, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.article_id, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.quantity, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.quantity, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.quantity, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.unit_price, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.unit_price, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.unit_price, "", new { @class = "text-danger" })
-            </div>
-        </div>
+   
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -100,6 +78,32 @@
         </div>
     </div>
 }
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Department</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in @Model.details)
+            {
+                <tr>
+                    <th scope="row">@item._id</th>
+                    <td>@item.article</td>
+                    <td>@item.unit_price</td>
+                    <td>@item.amount</td>
+                    <td>
+                        <a data-value="@item._id"
+                           href="javascript:void(0)" class="btnEdit">Edit</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
 <div>
     @Html.ActionLink("Back to List", "Index")

@@ -1,0 +1,103 @@
+﻿@model TheBillingProject.Models.Bill
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="page-breadcrumb">
+    <div class="row">
+        <div class="col-12 d-flex no-block align-items-center">
+            <h4 class="page-title">Accounting Movement</h4>
+            <div class="ml-auto text-right">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Accounting Movement</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+
+    <h3>Details</h3>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model._id)
+            </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.date)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.customer)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.seller)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.comment)
+            </dd>
+
+
+
+
+
+        </dl>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayName("Id")
+                </th>
+                <th>
+                    @Html.DisplayName("Article")
+                </th>
+                <th>
+                    @Html.DisplayName("Unit_Price")
+                </th>
+                <th>
+                    @Html.DisplayName("Amount")
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model.details)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item._id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.article)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.unit_price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.amount)
+                    </td>
+                   
+                </tr>
+            }
+
+        </table>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</div>
