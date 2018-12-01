@@ -842,6 +842,7 @@
     <Content Include="dist\css\icons\weather-icons\sass\weather-icons-wind.scss" />
     <Content Include="dist\css\icons\weather-icons\sass\weather-icons.min.scss" />
     <Content Include="dist\css\icons\weather-icons\sass\weather-icons.scss" />
+    <None Include="Properties\PublishProfiles\TheBillingProject - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

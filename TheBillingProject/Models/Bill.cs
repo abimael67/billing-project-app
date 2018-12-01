@@ -25,5 +25,14 @@ namespace TheBillingProject.Models
         public int quantity { get; set; }
         [Display(Name = "Precio Unitario")]
         public int unit_price { get; set; }
+        public List<BillDetails> billDetails;
+    }
+    public class BillDetails
+    {
+        public string _id { get; set; }
+        public string article { get; set; }
+        public string amount { get; set; }
+        public string unit_price { get; set; }
+     
     }
 }
