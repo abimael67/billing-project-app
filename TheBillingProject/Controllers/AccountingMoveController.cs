@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using TheBillingProject.Contabilidad;
 using TheBillingProject.Models;
 
 namespace TheBillingProject.Controllers
@@ -16,9 +17,9 @@ namespace TheBillingProject.Controllers
     public class AccountingMoveController : Controller
     {
         // GET: AccountingMove
-     
 
-        string Baseurl = "http://localhost:3000/";
+
+        string Baseurl = "https://billing-project-api.herokuapp.com/";
         HttpClient AccountingClient()
         {
             var client = new HttpClient();
@@ -38,6 +39,27 @@ namespace TheBillingProject.Controllers
             HttpResponseMessage Res = await AccountingClient().PostAsync("accounting/insert", new StringContent("", UnicodeEncoding.UTF8, "application/json"));
 
             Res.EnsureSuccessStatusCode();
+            WSXContabilidadSoap service = new WSXContabilidadSoapClient();
+            registrarAsientoRequest registrar = new registrarAsientoRequest();
+            registrarAsientoRequestBody registrarBody = new registrarAsientoRequestBody();
+
+            var accountingResponse = Res.Content.ReadAsStringAsync().Result;
+            JObject jo = JObject.Parse(accountingResponse);
+            JToken data = jo;
+            var jsonResponse = JsonConvert.DeserializeObject(accountingResponse);
+            var accountingInfoHeader = JsonConvert.DeserializeObject<AccountingMove>(data.ToString());
+            var accountingInfoDetail = JsonConvert.DeserializeObject<AccountingMove>(data.ToString()).details;
+            double monto = accountingInfoDetail.Sum(c => c.total);
+
+            registrarBody.CuentaCR = 12345;
+            registrarBody.CuentaDB = 54321;
+            registrarBody.IdAuxiliar = int.Parse(accountingInfoHeader.aux);
+            registrarBody.Descripcion = accountingInfoHeader.description;
+            registrarBody.Monto = monto;
+            registrar.Body = registrarBody;
+
+            service.registrarAsiento(registrar);
+
             return RedirectToAction("Index");
         }
         public async Task<ActionResult> Index(string desc)
