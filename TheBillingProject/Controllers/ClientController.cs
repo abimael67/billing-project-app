@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TheBillingProject.Models;
 
+
 namespace TheBillingProject.Controllers
 {
     public class ClientController : Controller
@@ -95,6 +96,12 @@ namespace TheBillingProject.Controllers
         {
 
             return View(cli);
+        }
+
+        public ActionResult Details(Client cli)
+        {
+
+            return View();
         }
     }
 

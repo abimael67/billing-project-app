@@ -14,11 +14,11 @@ namespace TheBillingProject.Models
         [Display(Name = "Nombre Comercial o Razon Social")]
         public string name { get; set; }
         [Display(Name = "RNC o Cedula")] 
-        public string rnc { get; set; }
+        public string identification { get; set; }
         [Display(Name = "Cuenta Contable")]
-        public string cuenta_contable { get; set; }
+        public string account { get; set; }
         [Display(Name = "Estado")]
-        public string estado { get; set; }
+        public string status { get; set; }
    
     }
 }

@@ -1,4 +1,4 @@
-@model IEnumerable<TheBillingProject.Models.Article>
+@model TheBillingProject.Models.Article>
 
 @{
     ViewBag.Title = "Index";
@@ -28,11 +28,13 @@
     <div class="form-group row">
         
         <div class="col-sm-9">
-         @using (Html.BeginForm("Index", "Article", FormMethod.Get))
-         {
-            @Html.TextBox("desc")
-            <button class="btn btn-default" type="submit">Buscar</button> // style as a link if desired
-         }
+            @Html.AntiForgeryToken()
+            @using (Html.BeginForm("Index", "Article", FormMethod.Get))
+
+            {
+                @Html.TextBox("desc")
+                <button class="btn btn-default" type="submit">Buscar</button>// style as a link if desired
+            }
         </div>
     </div>
     <table class="table">

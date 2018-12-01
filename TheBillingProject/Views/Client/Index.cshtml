@@ -41,13 +41,13 @@
                     @Html.DisplayNameFor(model => model.name)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.rnc)
+                    @Html.DisplayNameFor(model => model.identification)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.cuenta_contable)
+                    @Html.DisplayNameFor(model => model.account)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.estado)
+                    @Html.DisplayNameFor(model => model.status)
                 </th>
                 <th></th>
             </tr>
@@ -62,18 +62,18 @@
                         @Html.DisplayFor(modelItem => item.name)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.rnc)
+                        @Html.DisplayFor(modelItem => item.identification)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.cuenta_contable)
+                        @Html.DisplayFor(modelItem => item.account)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.estado)
+                        @Html.DisplayFor(modelItem => item.status)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                        @Html.ActionLink("Edit", "Edit", new { _id = item._id, name = item.name, identification = item.identification, account = item.account ,status = item.status })|
+                        @Html.ActionLink("Details", "Details", new { _id = item._id, name = item.name, identification = item.identification, account = item.account, status = item.status })|
+                        @Html.ActionLink("Delete", "Delete", new { _id = item._id, name = item.name, identification = item.identification, account = item.account, status = item.status })
                     </td>
                 </tr>
             }

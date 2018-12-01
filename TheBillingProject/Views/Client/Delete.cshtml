@@ -68,7 +68,8 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm("DeleteClient", "Client", new { _id = Model._id }))
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
@@ -76,4 +77,5 @@
             @Html.ActionLink("Back to List", "Index")
         </div>
     }
+</div>
 </div>
