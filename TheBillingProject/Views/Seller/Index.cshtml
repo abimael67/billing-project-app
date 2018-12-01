@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TheBillingProject.Models.Seller>
+@model IEnumerable<TheBillingProject.Models.Seller>
 
 @{
     ViewBag.Title = "Index";
@@ -40,7 +40,7 @@
                     @Html.DisplayNameFor(model => model.name)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.porciento)
+                    @Html.DisplayNameFor(model => model.comission_percent)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.status)
@@ -58,15 +58,15 @@
                         @Html.DisplayFor(modelItem => item.name)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.porciento)
+                        @Html.DisplayFor(modelItem => item.comission_percent)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.status)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                        @Html.ActionLink("Edit", "Edit", new { _id = item._id, name = item.name, comission_percent = item.comission_percent, status = item.status })|
+                        @Html.ActionLink("Details", "Details", new { _id = item._id, name = item.name, comission_percent = item.comission_percent, status = item.status })|
+                        @Html.ActionLink("Delete", "Delete", new { _id = item._id, name = item.name, comission_percent = item.comission_percent, status = item.status })
                     </td>
                 </tr>
             }
